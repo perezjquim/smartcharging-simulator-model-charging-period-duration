@@ -30,9 +30,8 @@ build-docker-model:
 	@echo '$(PATTERN_BEGIN) BUILDING `$(MODEL_NAME)` PACK...'
 
 	@pipreqs --savepath requirements.txt.tmp
-	@if cmp -s "requirements.txt.tmp" "requirements.txt"; then : ; \
-	else pipreqs ./ --force; fi
-	@rm requirements.txt.tmp
+	@if cmp -s "requirements.txt.tmp" "requirements.txt"; then rm requirements.txt.tmp; \
+	else mv requirements.txt.tmp requirements.txt; fi
 
 	@pack build $(MODEL_PACK_NAME) \
 	--builder $(BUILDPACK_BUILDER) \
