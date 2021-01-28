@@ -12,7 +12,7 @@ MODEL_NAME=charging_period_duration
 MODEL_PACK_NAME=pack_energysim_model_charging_period_duration
 MODEL_CONTAINER_NAME=cont_energysim_model_charging_period_duration
 MODEL_BACKDOOR=3000
-MODEL_PORTS=8001:8000
+MODEL_PORTS=8004:8000
 
 RABBIT_CONTAINER_NAME=cont_energysim_rabbitmq
 RABBIT_USER=guest
