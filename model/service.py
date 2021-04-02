@@ -27,18 +27,18 @@ class ModelService:
         min_charging_period_duration = ModelService.CHARGING_PERIOD_DURATION_AVG - ModelService.CHARGING_PERIOD_DURATION_STDDEV
         max_charging_period_duration = ModelService.CHARGING_PERIOD_DURATION_AVG + ModelService.CHARGING_PERIOD_DURATION_STDDEV
 
-        tf_random = tf.random.uniform(
+        tf_random = tf.random_uniform(
                 shape=shape,
                 minval=min_charging_period_duration,
                 maxval=max_charging_period_duration,
-                dtype=tf.dtypes.float32,
+                dtype=tf.float32,
                 seed=None,
                 name=None
         )
         tf_var = tf.Variable( tf_random )
 
-        tf_init = tf.compat.v1.global_variables_initializer( )
-        tf_session = tf.compat.v1.Session( )
+        tf_init = tf.global_variables_initializer( )
+        tf_session = tf.Session( )
         tf_session.run( tf_init )
 
         tf_return = tf_session.run( tf_var )
